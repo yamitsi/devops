@@ -1,0 +1,17 @@
+upstream backend {
+    server 172.17.0.2;
+    server 172.17.0.3;
+}
+
+server {
+    listen 80 default_server;
+
+    root /app;
+    index index.html index.htm;
+	send_timeout 5s;
+
+    server_name localhost;
+    location / {
+        proxy_pass http://backend;
+    }
+}
