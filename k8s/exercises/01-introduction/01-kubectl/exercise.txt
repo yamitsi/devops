@@ -11,10 +11,12 @@ vagrant up
 kubeadm init
 kubeadm join --token <token> 10.10.0.11:<master-port> --discovery-token-ca-cert-hash sha256:<hash>
 
+#basic commands for kubectl
 kubectl create -f <YAML_FILE>
+kubectl get
 kubectl get nodes
 kubectl get pods
-kubectl get services
+kubectl get services (= kubectl get svc)
 kubectl describe service <NAME>
 kubectl describe pod <NAME>
 kubectl logs <POD_NAME>
@@ -26,6 +28,8 @@ kubectl logs <POD_NAME>
 2. Make sure that your cluster is running
 3. Check that your `kubectl` is connected to the new cluster. You can verify it by checking the node names in the cluster (`kubectl get nodes`)
 3. Upload the configuration defined in `hello-world.yml` file (`kubectl create -f <file-name>`)
+    kubectl create -f hello-world.yml
+    
 4. Wait until the application's pod will be in the **running** state by querying it's status with
 `kubectl get pods` command
     1. If it's not running yet, can you check why? Use the describe command
