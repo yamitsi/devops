@@ -37,6 +37,8 @@ kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://raw.githubuserc
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+#check if works (shoud get nodes with sttuses)
+kubectl get nodes
 
 #resetting k8s if initialised not correctly run reset + run correct init command again
 #kubeadm reset
