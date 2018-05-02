@@ -1,0 +1,6 @@
+# Rest of pod definition above here
+volumes:
+  - name: "kuard-data"
+    nfs:
+        server: my.nfs.server.local
+        path: "/exports"

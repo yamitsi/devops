@@ -1,0 +1,11 @@
+kubectl run nginx --image=nginx:1.7.12
+
+kubectl get deployments nginx \
+-o jsonpath --template {.spec.selector.matchLabels}
+
+$ kubectl scale deployments nginx --replicas=2
+
+strategy:
+rollingUpdate:
+maxSurge: 1
+maxUnavailable: 1

@@ -1,0 +1,20 @@
+kubectl run -i oneshot \
+--image=gcr.io/kuar-demo/kuard-amd64:1 \
+--restart=OnFailure \
+-- --keygen-enable \
+--keygen-exit-on-complete \
+--keygen-num-to-gen 10
+
+--restart=OnFailure tells k8s to create a job object
+
+
+add args to cause jobs to fail : 
+
+args:
+- "--keygen-enable"
+- "--keygen-exit-on-complete"
+- "--keygen-exit-code=1"
+- "--keygen-num-to-gen=3"
+
+
+change restartpolicy to Never this will create new pod rather than restart pods
